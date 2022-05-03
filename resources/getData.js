@@ -73,10 +73,10 @@ function getCalendar(calendarData,render) {
             },
             pieces: [
                 { value: 0, color: '#ebedf0' },
-                { gt: 0, lt: 0.4, color: '#9be9a8' },
-                { gt: 0.4, lt: 0.6, color: '#40c463' },
-                { gt: 0.6, lt: 1, color: '#30a14e' },
-                { gt: 1, color: '#216e39' }
+                { gt: 0, lt: 1, color: '#9be9a8' },
+                { gt: 1, lt: 3, color: '#40c463' },
+                { gt: 3, lt: 8, color: '#30a14e' },
+                { gt: 8, color: '#216e39' }
             ],
         },
         series: {
