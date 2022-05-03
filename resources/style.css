@@ -1,0 +1,137 @@
+body.vscode-dark {
+    background-color: white;
+}
+
+.Container-Grids {
+    display: grid;
+    
+}
+
+.Constraint-Col-Flex {
+    display: flex !important;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.Layout-Grids {
+    grid-template-columns: [colLine1] 25% [colLine2] 25% [colLine3] 25% [colLine4];
+    grid-template-rows: [rowLine1] 25% [rowLine2] 25% [rowLine3] 25% [rowLine4];
+}
+
+.Component-Cards {
+    color: plum;
+}
+
+.topInfo {
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 2%;
+    margin-bottom: 5%;
+}
+
+
+.subLine {
+    display: inline-block;
+    position: relative;
+    padding-top: 2%;
+    border-bottom: 2px solid gray;
+}
+
+.avatar-container {
+    display: inline-block;
+    width: 13%;
+}
+
+.avatar {
+    border-radius: 50%;
+    border-color: black;
+    width: 100%;
+    /* height: auto; */
+}
+
+.idContent {
+    font-size: 24px;
+    line-height: 1.25;
+    position: absolute;
+    left: 16%;
+    bottom: 16%;
+}
+
+#index-1 {
+    grid-column-start: colLine2;
+    grid-column-end: colLine3;
+    grid-row-start: rowLine2;
+    grid-row-end: rowLine3;
+
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+
+
+.v-card {
+    box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+    border-radius: 4px;
+}
+
+.v-card_title {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: .0125em;
+    line-height: 2rem;
+    word-break: break-all;
+
+    padding: 16px;
+}
+
+.v-card_subtitle {
+    margin-top: -16px;
+    padding-top: 0;
+    padding: 16px;
+
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.375rem;
+    letter-spacing: .0071428571em;
+}
+
+.v-avatar {
+    align-items: center;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    line-height: normal;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.theme-light {
+    background-color: #fff;
+    border-color: #fff;
+    color: rgba(0, 0, 0, .87);
+}
+
+
+#avatar {
+    margin-left: 1%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    left: 1%;
+    top: 1%;
+    bottom: 1%;
+    position: relative;
+}
+
+#idTitle {
+    font-size: 32px;
+    position: absolute;
+    left: 150px;
+    top: 45%;
+    line-height: 1.25;
+}

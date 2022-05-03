@@ -1,26 +1,59 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
+/*--------------------------------------------------------------------------------
+ * Copyright (C) Wendao Lee (https://github.com/WendaoLee).All rights reserved.
+ *--------------------------------------------------------------------------------*/
 import * as vscode from 'vscode';
+import { ProblemSearcher } from './ProblemSearcher'
+import { CodingStatistic } from './CodingStatistic';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+
+var caculator: CodingStatistic
+
 export function activate(context: vscode.ExtensionContext) {
-	
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "a-soul-problemsearcher" is now active!');
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('a-soul-problemsearcher.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('GOOD!');
-	});
+	let conf = vscode.workspace.getConfiguration('a-soul-codehelper');
 
-	context.subscriptions.push(disposable);
+	const modules = ['problemSearcher','codingStatistic'];
+
+	const modulesLoader = {
+		'loadproblemSearcher':function(){
+			const kProblemSearcher = vscode.languages.registerCodeActionsProvider(
+				"*",
+				new ProblemSearcher(context)
+			);
+			context.subscriptions.push(kProblemSearcher);
+		},
+		'loadcodingStatistic':function(){
+			caculator = new CodingStatistic(context, new Date());
+		}
+	}
+
+	for(const i of modules){
+		conf.get(i+'.enable') == true?modulesLoader['load'+i]():console.log('The module ' + i + "is disabled");
+	}
+
+	/**
+	 * 注册打开本地资源文件的命令。
+	 * 它应该是一个通用命令，故而放在了插件初始化之中。
+	 */
+	vscode.commands.registerCommand("a-soul-codehelper.openResourcesFolder",()=>{
+		vscode.env.openExternal(vscode.Uri.file(context.extensionPath));
+	})
+
+	/**
+	 * 注册当设置更改时的消息提醒。
+	 */
+	vscode.workspace.onDidChangeConfiguration(()=>{
+		vscode.window.showInformationMessage("来自ASoul_CodeHelper：一些设置可能要重新打开窗口才能生效。","立刻重启").then((click)=>{
+			if(click){
+				vscode.commands.executeCommand("workbench.action.reloadWindow");
+			}		
+		}
+	)})
 }
 
-// this method is called when your extension is deactivated
-export function deactivate() {}
+/**
+ * vscode关闭或插件卸载时调用的函数，它将尝试保存最新数据到本地。但是因为vscode的设计问题，有概率失败。
+ */
+export function deactivate() {
+	vscode.commands.executeCommand("a-soul-codehelper.updateData");
+}

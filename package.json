@@ -1,23 +1,113 @@
 {
-	"name": "a-soul-problemsearcher",
-	"displayName": "A-Soul-ProblemSearcher",
-	"description": "Easy to search problems through programming",
+	"name": "a-soul-codehelper",
+	"publisher": "WendaoLee",
+	"displayName": "A-Soul_CodeHelper",
+	"description": "包含报错快捷搜索、代码时长统计的ASoul粉丝作品。天道酬勤是有用的，一个魂也要加油",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.66.0"
 	},
+	"license": "SEE LICENSE IN LICENSE",
 	"categories": [
 		"Other"
 	],
+	"keywords": [
+		"ASoul",
+		"CodeHelper",
+		"QuickSearcher",
+		"statistic",
+		"代码助手"
+	],
+	"icon": "./pic/logo.jpg",
 	"activationEvents": [
-		"onCommand:a-soul-problemsearcher.helloWorld"
+		"onStartupFinished"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
+		"configuration": [
+			{
+				"title": "A-Soul_CodeHelper",
+				"properties": {
+					"a-soul-codehelper.problemSearcher.enable": {
+						"type": "boolean",
+						"default": true,
+						"description": "启用报错快速搜索"
+					},
+					"a-soul-codehelper.codingStatistic.enable": {
+						"type": "boolean",
+						"default": true,
+						"description": "启用代码时长统计"
+					},
+					"a-soul-codehelper.problemSearcher.list": {
+						"type": "array",
+						"default": [
+							{
+								"name": "稀土掘金",
+								"url": "https://juejin.cn/search?query=",
+								"enabled": true
+							},
+							{
+								"name": "StackOverFlow",
+								"url": "https://stackoverflow.com/search?q=",
+								"enabled": true
+							},
+							{
+								"name": "必应搜索",
+								"url": "https://cn.bing.com/search?q=",
+								"enabled": true
+							},
+							{
+								"name": "Google搜索",
+								"url": "https://www.google.com/search?q=",
+								"enabled": true
+							}
+						],
+						"markdownDescription": "🎈配置搜索报错的方式。\n\r您只需仿照配置JSON中的格式进行配置即可。它应该是一个有效的搜索URL。如果您要自配置URL,请确认该查找方式的可用性。\n\r注：**enabled**是一个出于未来更新兼容性而设置的保留属性，它暂时无用但是需要您配置的。我们计划在未来添加对设置搜索方式可见性的支持。还请您见谅。"
+					},
+					"a-soul-codehelper.codingStatistic.timecycle": {
+						"type": "number",
+						"default": 10,
+						"minimum": 5,
+						"description": "⏰代码时长统计常态更新周期,以分钟计,最低不少于5分钟。\n\r 通常情况下您无需更改此项设置,因为在您活跃的现实情况下,A-Soul_ColdeHelper往往会自动进行时间的统计。"
+					},
+					"a-soul-codehelper.codingStatistic.WebviewPic": {
+						"type": "array",
+						"default": [
+							"jiaran.gif",
+							"xiangwan.gif",
+							"nailin.gif",
+							"jiale.gif",
+							"beila.gif"
+						],
+						"items": {
+							"type": "string"
+						},
+						"markdownDescription": "⏰在可视化页面上随机出现的头像图。\n\r 目前仅支持本地资源加载头像图（产能不足，小伙伴对不起🧎‍♀️🧎‍♂️）,未来会改的 \n\r 如果要自定义头像图，在设置中添加图片文件名的同时还需要调用命令`ASoul_CodeHelper:打开本地数据存储目录`手动导入文件到`/resources/pic`文件夹下方可使用。（产能不足，小伙伴对不起🧎‍♀️🧎‍♂️）"
+					},
+					"a-soul-codehelper.codingStatistic.WebviewRenderKind": {
+						"type": "string",
+						"default": "canvas",
+						"enum": [
+							"canvas",
+							"svg"
+						],
+						"markdownDescription": "⏰可视化页面图表的渲染方式,默认为canvas。渲染方式的不同仅影响图片是否以svg的格式导出,对性能的影响微乎其微。如果您只是想单纯保存图片,请使用canvas。"
+					}
+				}
+			}
+		],
 		"commands": [
 			{
-				"command": "a-soul-problemsearcher.helloWorld",
-				"title": "SEE"
+				"command": "a-soul-codehelper.updateData",
+				"title": "ASoul_CodeHelper:立即更新本地代码时长统计数据"
+			},
+			{
+				"command": "a-soul-codehelper.openWebview",
+				"title": "ASoul_CodeHelper:打开时长统计的Webview页面"
+			},
+			{
+				"command": "a-soul-codehelper.openResourcesFolder",
+				"title": "ASoul_CodeHelper:打开本地数据存储目录"
 			}
 		]
 	},
@@ -33,19 +123,23 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.66.0",
 		"@types/glob": "^7.2.0",
 		"@types/mocha": "^9.1.0",
 		"@types/node": "14.x",
+		"@types/vscode": "^1.66.0",
 		"@typescript-eslint/eslint-plugin": "^5.12.1",
 		"@typescript-eslint/parser": "^5.12.1",
+		"@vscode/test-electron": "^2.1.2",
 		"eslint": "^8.9.0",
 		"glob": "^7.2.0",
 		"mocha": "^9.2.1",
-		"typescript": "^4.5.5",
 		"ts-loader": "^9.2.6",
+		"typescript": "^4.6.4",
 		"webpack": "^5.69.1",
-		"webpack-cli": "^4.9.2",
-		"@vscode/test-electron": "^2.1.2"
+		"webpack-cli": "^4.9.2"
+	},
+	"dependencies": {
+		"echarts": "^5.3.2",
+		"typecript": "0.0.1-security"
 	}
 }
