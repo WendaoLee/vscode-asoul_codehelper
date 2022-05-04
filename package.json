@@ -11,6 +11,7 @@
 	"bugs": {
 		"email": "leewendao@outlook.com"
 	},
+	"preview":true,
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/WendaoLee/vscode-asoul_codehelper.git"

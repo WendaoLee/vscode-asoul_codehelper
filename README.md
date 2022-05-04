@@ -15,7 +15,9 @@
 
 ![](./pic/example_codingstatistic.gif)
 
-目前插件还在缓慢开发中......如果您有遇到什么问题或有什么好的意见，务必在[Issue](https://github.com/WendaoLee/vscode-asoul_codehelper/issues)（如果可以尽量发Issue提😭我也想过一把项目有人发issue的瘾）或发邮件至leewendao@outlook.com反馈。
+目前插件还在缓慢开发中......暂时发布的是preview版本，计划在插件更加稳健时才发布正式版本。如果您有遇到什么问题或有什么好的意见，务必在[Issue](https://github.com/WendaoLee/vscode-asoul_codehelper/issues)（如果可以尽量发Issue提😭我也想过一把项目有人发issue的瘾）或发邮件至leewendao@outlook.com反馈。
+
+> 如果有人用这个插件的话......如果您愿意，务必跟我反馈一下😭不然没动力维护了。
 
 ## 2.0 如何使用
 
