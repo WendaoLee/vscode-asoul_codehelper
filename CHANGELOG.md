@@ -1,9 +1,7 @@
 # Change Log
+这是A-Soul_CodeHelper的更新日志。
+## [0.0.1] - 2022-05-04
+### Added
 
-All notable changes to the "a-soul-problemsearcher" extension will be documented in this file.
+- 正式发布发行版。目前包括报错快速搜索与代码时长统计两项功能。
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
