@@ -2,8 +2,8 @@
 	"name": "a-soul-codehelper",
 	"publisher": "WendaoLee",
 	"displayName": "A-Soul_CodeHelper",
-	"description": "包含报错快捷搜索、代码时长统计的ASoul粉丝作品。天道酬勤是有用的，一个魂也要加油",
-	"version": "0.0.1",
+	"description": "包含报错快捷搜索、代码时长统计的开发辅助插件。天道酬勤是有用的，一个魂也要加油",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.66.0"
 	},
@@ -50,22 +50,22 @@
 						"type": "array",
 						"default": [
 							{
-								"name": "稀土掘金",
+								"name": "在稀土掘金搜索",
 								"url": "https://juejin.cn/search?query=",
 								"enabled": true
 							},
 							{
-								"name": "StackOverFlow",
+								"name": "使用StackOverFlow搜索",
 								"url": "https://stackoverflow.com/search?q=",
 								"enabled": true
 							},
 							{
-								"name": "必应搜索",
+								"name": "使用必应搜索",
 								"url": "https://cn.bing.com/search?q=",
 								"enabled": true
 							},
 							{
-								"name": "Google搜索",
+								"name": "使用Google搜索",
 								"url": "https://www.google.com/search?q=",
 								"enabled": true
 							}
