@@ -1,7 +1,7 @@
 
 ![logo](logo.jpg)
 
-### 1.0简介
+## 1.0 简介
 
 🎉**ASoul_CodeHelper**，一款以提效为主题的VSCode插件，为字节跳动旗下稀土掘金社区2022年春季Hackathon浏览器插件赛道参赛作品，同样是作者本人作为ASoul粉丝的粉丝向作品。
 
@@ -17,7 +17,7 @@
 
 目前插件还在缓慢开发中......如果您有遇到什么问题或有什么好的意见，务必在[Issue](https://github.com/WendaoLee/vscode-asoul_codehelper/issues)（如果可以尽量发Issue提😭我也想过一把项目有人发issue的瘾）或发邮件至leewendao@outlook.com反馈。
 
-### 2.0如何使用
+## 2.0 如何使用
 
 安装插件后，默认会启用所有模块。
 
@@ -45,7 +45,7 @@ data 本地数据存储目录
 
 **数据保存格式**上，出于易于读解与二次使用的目的，插件采用了JSON格式进行保存。一个JSON数据的结构如下：
 
-```json
+```
 month_file 某月的数据文件
 └── date                具体日期，
 	├── statistic       总体统计时间。包括当日时间总计与使用语言时间总计。
@@ -68,7 +68,7 @@ month_file 某月的数据文件
 
 值得一提的是，可视化界面的代码是与插件本身解耦的。如果您对前端有所熟悉，您可以在本地插件文件夹下的`./resources`文件夹中自己修改可视化界面的样式。
 
-### 3.0 TODO
+## 3.0 TODO
 
 接下来一段时间的计划有：
 
@@ -76,20 +76,24 @@ month_file 某月的数据文件
 - [ ] 添加一个公共API，供其他插件使用。
 - [ ] 优化报错快速搜索模块，使交互更加友好。
 
-### 4.0 Contribution
+## 4.0 Contribution
 
 任何形式的贡献都是受欢迎的，欢迎提交PR或在issue中给出您的宝贵意见，包括但不限于功能的添加与Bug的反馈。
 
-### 5.0 鸣谢
+## 5.0 鸣谢
 
 - Apache Echarts，它的可视化库为不擅前端的我减轻了很多负担。
 - A-Soul，她们的直播间是我每回为自己的愚驽与无知痛苦不已时的休息站。
 
-### 6.0 文档
+## 6.0 文档
 
-- [本地储存文件说明](./doc/本地存储文件说明.md)
-- [部分程序设计细节说明](./doc/design.md)
+这一部分内容详情见Wiki。
+
+- [本地储存文件说明](https://github.com/WendaoLee/vscode-asoul_codehelper/wiki/%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
+- [部分程序设计细节说明](https://github.com/WendaoLee/vscode-asoul_codehelper/wiki/%E9%83%A8%E5%88%86%E8%AE%BE%E8%AE%A1%E8%AF%B4%E6%98%8E)
 
 ***
 
- 另：欢迎在Bilibili或抖音上关注@向晚大魔王@贝拉Kira@珈乐Carol@嘉然今天吃什么@乃琳Eileen
+欢迎在Bilibili或抖音上关注@向晚大魔王@贝拉Kira@珈乐Carol@嘉然今天吃什么@乃琳Eileen
+
+关注了她们后，欢迎关注企划官号@A-Soul-Official

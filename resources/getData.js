@@ -57,7 +57,6 @@ function getCalendar(calendarData,render) {
         visualMap: {
             min: 0,
             max: 2000,
-            show: false,
             orient:'horizontal',
             type: "piecewise",
             showLabel:false,

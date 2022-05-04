@@ -3,3 +3,13 @@ dist
 node_modules
 .vscode-test/
 *.vsix
+pic/load.jpg
+pic/design1.png
+pic/design2.png
+pic/design3.png
+pic/design4.png
+pic/design5.png
+pic/design6.png
+pic/load.jpg
+pic/noload.jpg
+pic/setting.jpg
