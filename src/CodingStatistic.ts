@@ -38,6 +38,14 @@ enum ContextInfo {
     CONTEXT_CACULATENUM = "caculateTime"
 }
 
+enum InitialContext{
+
+}
+
+enum ActivityContext{
+    
+}
+
 /**
  * 提升代码可读性而考虑的枚举类。
  */
@@ -126,8 +134,7 @@ export class CodingStatistic implements onStateChanged{
 
         this.theScheduler = this.initialScheduler();
 
-        this.theStatusBar = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
-        this.theStatusBar.text = "$(clock) initializing...";
+        this.theStatusBar = this.initialStatusBar();
         this.theStatusBar.show()
 
         //下面是创建必备的数据文件及初始化维护器
@@ -145,7 +152,7 @@ export class CodingStatistic implements onStateChanged{
         /**
          * 保存本地数据数据命令。它将在一个周期中调用。
          */
-        const updateData = vscode.commands.registerCommand("a-soul-codehelper.updateData", () => {
+        const updateLocalData = vscode.commands.registerCommand("a-soul-codehelper.updateData", () => {
             this.theScheduler["saveLocalData"]();
             this.theScheduler["packLatestData"]();
             console.log("works!")
@@ -220,20 +227,15 @@ export class CodingStatistic implements onStateChanged{
 
         })
 
-        vscode_context.subscriptions.push(updateData);
 
         this.theScheduler["periodicUpdate"]();//在statusbar上显示今日代码时长
 
-
-        this.theStatusBar.tooltip = "今日代码时长~点击即可查看详细统计"
-        this.theStatusBar.command = "a-soul-codehelper.openWebview";
-
-        vscode_context.subscriptions.push(this.theStatusBar);
+        // vscode_context.subscriptions.push(this.theStatusBar);
         
         this.initialListener();
 
         //初始化周期更新事件。
-        this.event_PeriodUpdate = this.getTimeCycle(conf.get<number>('codingStatistic.timecycle') as number);       
+        this.event_PeriodUpdate = this.initialTimeCycle(conf.get<number>('codingStatistic.timecycle') as number);       
 
     }
 
@@ -321,7 +323,15 @@ export class CodingStatistic implements onStateChanged{
         }
     }
 
-    private getTimeCycle(cycle:number){
+    private initialStatusBar(){
+        let temp = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
+        temp.text = "$(clock) initializing...";
+        temp.tooltip = "今日代码时长~点击即可查看详细统计"
+        temp.command = "a-soul-codehelper.openWebview";
+        return temp;
+    }
+
+    private initialTimeCycle(cycle:number){
         return setInterval(() => {
             this.theScheduler["periodicUpdate"]();
             this.theScheduler["saveLocalData"]();

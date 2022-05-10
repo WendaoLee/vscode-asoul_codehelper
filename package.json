@@ -50,7 +50,7 @@
 						"type": "array",
 						"default": [
 							{
-								"name": "在稀土掘金搜索",
+								"name": "使用稀土掘金搜索",
 								"url": "https://juejin.cn/search?query=",
 								"enabled": true
 							},
@@ -74,6 +74,12 @@
 					},
 					"a-soul-codehelper.codingStatistic.timecycle": {
 						"type": "number",
+						"default": 10,
+						"minimum": 5,
+						"description": "⏰代码时长统计常态更新周期,以分钟计,最低不少于5分钟。\n\r 通常情况下您无需更改此项设置,因为在您活跃的现实情况下,A-Soul_ColdeHelper往往会自动进行时间的统计。"
+					},
+					"a-soul-codehelper.codingStatistic.dataStorage": {
+						"type": "string",
 						"default": 10,
 						"minimum": 5,
 						"description": "⏰代码时长统计常态更新周期,以分钟计,最低不少于5分钟。\n\r 通常情况下您无需更改此项设置,因为在您活跃的现实情况下,A-Soul_ColdeHelper往往会自动进行时间的统计。"
